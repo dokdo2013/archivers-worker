@@ -7,7 +7,7 @@ export class WorkerProcessor {
 
   @Process({
     name: 'processSegment',
-    concurrency: 10,
+    concurrency: 20,
   })
   async processSegment(job) {
     console.log(job.data);
