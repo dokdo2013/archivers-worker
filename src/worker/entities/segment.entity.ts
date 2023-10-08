@@ -77,4 +77,10 @@ export class Segment extends Model<Segment> {
     comment: 'Link',
   })
   link: string;
+
+  @Column({
+    field: 'segment_date',
+    comment: 'Segment Date',
+  })
+  segmentDate: Date;
 }

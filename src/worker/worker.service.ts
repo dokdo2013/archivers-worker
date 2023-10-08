@@ -58,8 +58,7 @@ export class WorkerService {
       segmentId: uuidFileName,
       segmentLength: parseFloat(data.segmentDuration),
       link: `${data.cdnBaseUrl}/${data.streamId}/${uploadFileName}`,
-      createdAt: convertedDate,
-      updatedAt: currentDate,
+      segmentDate: convertedDate,
     });
 
     try {
