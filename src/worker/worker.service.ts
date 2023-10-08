@@ -50,15 +50,14 @@ export class WorkerService {
     };
     await s3Client.send(new PutObjectCommand(params));
 
-    // const s3Link = `${process.env['S3_URL']}/${process.env['S3_BUCKET_NAME']}/${uploadFileName}`;
     const convertedDate = new Date(data.date);
     const currentDate = new Date();
 
     await this.segmentModel.create({
-      streamId: process.env['STREAM_ID'],
+      streamId: data.streamId,
       segmentId: uuidFileName,
-      segmentLength: parseFloat(process.env['SEGMENT_DURATION']),
-      link: `${process.env['CDN_BASE_URL']}/${process.env['STREAM_ID']}/${uploadFileName}`,
+      segmentLength: parseFloat(data.segmentDuration),
+      link: `${data.cdnBaseUrl}/${data.streamId}/${uploadFileName}`,
       createdAt: convertedDate,
       updatedAt: currentDate,
     });
